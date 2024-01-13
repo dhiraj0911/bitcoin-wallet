@@ -22,13 +22,37 @@ function saveAllWallets(newWallet) {
   }
   const walletToSave = {
     name: newWallet.name,
-    address: newWallet.address
+    addresses: [newWallet.address] // change this line
   };
 
   wallets.push(walletToSave);
   fs.writeFileSync(filePath, JSON.stringify(wallets, null, 2));
 }
 
+function findWalletNameByAddress(address) {
+  console.log(address);
+  const filePath = path.join(__dirname, 'all_wallets.json');
+  const wallets = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  for (let wallet of wallets) {
+    if (wallet.addresses.flat().includes(address)) {
+      return wallet.name;
+    }
+  }
+  throw new Error('Wallet not found');
+}
+
+function addAddressToWallet(walletName, newAddress) {
+  const filePath = path.join(__dirname, 'all_wallets.json');
+  let wallets = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  for (let wallet of wallets) {
+    if (wallet.name === walletName) {
+      wallet.addresses[0].push(newAddress);
+      fs.writeFileSync(filePath, JSON.stringify(wallets, null, 2));
+      return;
+    }
+  }
+  throw new Error('Wallet not found');
+}
 
 function createWallet(name) {
   const mnemonic = bip39.generateMnemonic();
@@ -42,7 +66,7 @@ function createWallet(name) {
   const wallet = {
     name,
     mnemonic,
-    address,
+    address: [address], // change this line
   };
 
   saveAllWallets(wallet);
@@ -60,7 +84,10 @@ function importWallet(mnemonic) {
   const keyPair = root.derivePath(derivationPath);
   const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
 
+  const walletName = findWalletNameByAddress(address);
+
   return {
+    name: walletName,
     mnemonic,
     address,
   };
@@ -83,15 +110,35 @@ function listWallets() {
   }
 }
 
+function getWalletByName(walletName) {
+  const filePath = path.join(__dirname, 'all_wallets.json');
+  const wallets = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  for (let wallet of wallets) {
+    if (wallet.name === walletName) {
+      return wallet;
+    }
+  }
+  throw new Error('Wallet not found');
+}
+
 function generateAddress(wallet) {
   const mnemonic = wallet.mnemonic;
   const seed = bip39.mnemonicToSeedSync(mnemonic);
   const root = bip32.fromSeed(seed);
-  const derivationPath = "m/44'/0'/0'/0/1";
+
+  // Get the wallet by name
+  const walletData = getWalletByName(wallet.name);
+
+  // Generate the derivation path dynamically
+  const addressIndex = walletData.addresses[0].length;
+  const derivationPath = `m/44'/0'/0'/0/${addressIndex}`;
+
   const keyPair = root.derivePath(derivationPath);
   const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
   console.log(`Address: ${address}`);
-  console.log(wallet.address)
+
+  addAddressToWallet(wallet.name, address);
+
   return {
     address,
   };

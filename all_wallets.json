@@ -1,26 +1,27 @@
 [
   {
-    "name": "Dhiraj",
-    "address": "13ckKKNhGt6rj74FaU8fpDAtbXeFQfbwpA"
-  },
-  {
-    "name": "test",
-    "address": "1Fqhoah51R2dHWBV9rkZa4pGiA44E8eEJJ"
-  },
-  {
-    "name": "test2",
-    "address": "15gVRf7DoG2f8VDVF9E351HyUhEMLz6xra"
-  },
-  {
-    "name": "hiii",
-    "address": "1HbyRc4844vVAYZ4Hwjjj2iRbrwwvNe6Sg"
-  },
-  {
-    "name": "thisIsreality",
-    "address": "16bgFPK7TorKxp8zfcGyemVYqjVkAHGXb5"
-  },
-  {
-    "name": "walter",
-    "address": "18rp2s849mKtW3QF7acnqPDw4rYhyrjSjc"
+    "name": "dhriaj",
+    "addresses": [
+      [
+        "17pP8fRZXeC7Q8hsj6H7QNYDxDx2hYsWRX",
+        "1GahRwdxUecXLaggJ6XCX9yfQ8QvnEhLxo",
+        "1EduuyyKrn4B3uLVYxgpxWuYKsyMkCKM2g",
+        "1Lte324bCVW61HLCRFbCJi7sdVLGpyE8QX",
+        "17ZsZqJDaTC8tBG3mGmqhoSStxbpCDsQG5",
+        "1JPWZtmR6jZyBANVp3XdQPvGiFfV6KsXVn",
+        "12CTyWRETYvYSS1C4mzk1P2eskrEi1x2NM",
+        "17hi9rDuV3VuJjoyVu63Qh4gcw9kFvRMk3",
+        "1NX1oiJ9jb7rtqmfPBbYe91Z6zZi69ETMu",
+        "17xVAjUkT3FE3YtWfuQq1XHwq4NZLwGCXs",
+        "1KTBPUNLPJxs7CfhELLsawoA2DwpGUZkk7",
+        "1MHHapufxvr6L4SSHutFFFr6BiDYrZjL5v",
+        "16MkTjxe2Rqf5q353p4NFc8hhY1JGqenGB",
+        "1JpgF8CFtQ1KTvQWfA1WjwfaSZZ2iXT4EZ",
+        "1KSzB9DhDmQFBdBBzin8L4sBcZJdvDLbAA",
+        "1JAdW761dSryZVvbuNxYRj4xpNPkVaehTU",
+        "1PGGPM4wd3hD14ekXvhP2HZEtw3HnD7aSd",
+        "1579fTv18PYpuLqNQSq8u1Lbr39qGVzmTh"
+      ]
+    ]
   }
 ]
