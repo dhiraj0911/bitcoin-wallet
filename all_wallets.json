@@ -5,22 +5,35 @@
       [
         "17pP8fRZXeC7Q8hsj6H7QNYDxDx2hYsWRX",
         "1GahRwdxUecXLaggJ6XCX9yfQ8QvnEhLxo",
-        "1EduuyyKrn4B3uLVYxgpxWuYKsyMkCKM2g",
-        "1Lte324bCVW61HLCRFbCJi7sdVLGpyE8QX",
-        "17ZsZqJDaTC8tBG3mGmqhoSStxbpCDsQG5",
-        "1JPWZtmR6jZyBANVp3XdQPvGiFfV6KsXVn",
-        "12CTyWRETYvYSS1C4mzk1P2eskrEi1x2NM",
-        "17hi9rDuV3VuJjoyVu63Qh4gcw9kFvRMk3",
-        "1NX1oiJ9jb7rtqmfPBbYe91Z6zZi69ETMu",
-        "17xVAjUkT3FE3YtWfuQq1XHwq4NZLwGCXs",
-        "1KTBPUNLPJxs7CfhELLsawoA2DwpGUZkk7",
-        "1MHHapufxvr6L4SSHutFFFr6BiDYrZjL5v",
-        "16MkTjxe2Rqf5q353p4NFc8hhY1JGqenGB",
-        "1JpgF8CFtQ1KTvQWfA1WjwfaSZZ2iXT4EZ",
-        "1KSzB9DhDmQFBdBBzin8L4sBcZJdvDLbAA",
-        "1JAdW761dSryZVvbuNxYRj4xpNPkVaehTU",
-        "1PGGPM4wd3hD14ekXvhP2HZEtw3HnD7aSd",
-        "1579fTv18PYpuLqNQSq8u1Lbr39qGVzmTh"
+        "1EduuyyKrn4B3uLVYxgpxWuYKsyMkCKM2g"
+      ]
+    ]
+  },
+  {
+    "name": "HotCypherock",
+    "addresses": [
+      [
+        "1Nm1YauwxM3f7NUkdaTGh1GMjGinfytuhy"
+      ]
+    ]
+  },
+  {
+    "name": "salamanca",
+    "addresses": [
+      [
+        "16ZfwdtbqoqMmTRTAXcHqSFdFXEx2o2BAe",
+        "17mgJbfR88zHEf32CSzJajHuhNbW21xs4r",
+        "1CHqJj4zoRpn9pB2U2ydBdv4bTkVr7ZsrX",
+        "14mArbBtTTbnCAjzgf7mFKUKv1UtuGNphR"
+      ]
+    ]
+  },
+  {
+    "name": "test",
+    "addresses": [
+      [
+        "1JZ6rsi6mEVZh5hwWx9XBN4s5R3NTakvdM",
+        "12mGkSRY9rnqxj3Xjw3r3KLcafSXyBgEvw"
       ]
     ]
   }

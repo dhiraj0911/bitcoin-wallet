@@ -22,7 +22,7 @@ function saveAllWallets(newWallet) {
   }
   const walletToSave = {
     name: newWallet.name,
-    addresses: [newWallet.address] // change this line
+    addresses: [newWallet.address]
   };
 
   wallets.push(walletToSave);
@@ -66,7 +66,7 @@ function createWallet(name) {
   const wallet = {
     name,
     mnemonic,
-    address: [address], // change this line
+    address: [address],
   };
 
   saveAllWallets(wallet);
@@ -96,13 +96,24 @@ function importWallet(mnemonic) {
 function listWallets() {
   const filePath = path.join(__dirname, 'all_wallets.json');
   const wallets = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  console.log('\n')
+  console.log('\n');
+  
   if (wallets && Array.isArray(wallets)) {
-    console.log('Index | Name\t\t\t\t| Address');
+    // Table Header
+    console.log('Index | Name                           | Addresses');
     console.log('-'.repeat(80));
 
     wallets.forEach((wallet, index) => {
-      console.log(`${index + 1}     | ${wallet.name.padEnd(30)} | ${wallet.address}`);
+      let addresses = '';
+      if (wallet.addresses && Array.isArray(wallet.addresses) && wallet.addresses[0].length > 0) {
+        addresses = wallet.addresses[0].join('\n' + ' '.repeat(39) + '| ');
+      } else {
+        addresses = 'No address';
+      }
+
+      const nameFormatted = wallet.name.padEnd(30);
+
+      console.log(`${index + 1}     | ${nameFormatted} | ${addresses}`);
       console.log('-'.repeat(80));
     });
   } else {
@@ -126,10 +137,8 @@ function generateAddress(wallet) {
   const seed = bip39.mnemonicToSeedSync(mnemonic);
   const root = bip32.fromSeed(seed);
 
-  // Get the wallet by name
   const walletData = getWalletByName(wallet.name);
 
-  // Generate the derivation path dynamically
   const addressIndex = walletData.addresses[0].length;
   const derivationPath = `m/44'/0'/0'/0/${addressIndex}`;
 

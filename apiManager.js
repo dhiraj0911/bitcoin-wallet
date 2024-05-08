@@ -25,18 +25,14 @@ async function getTransactions(address) {
         // Get only the latest 10 transactions
         const latestTransactions = transactions.slice(0, 10);
 
-        // Create a table to display the transactions
         console.log("Latest 10 Transactions:");
         console.table(latestTransactions.map(tx => ({
             "Tx Hash": tx.tx_hash,
             "Block Height": tx.block_height,
-            "Input N": tx.tx_input_n,
-            "Output N": tx.tx_output_n,
+            // "Output N": tx.tx_output_n,
             "Value": tx.value,
-            "Reference Balance": tx.ref_balance,
-            "Spent": tx.spent,
-            "Confirmations": tx.confirmations,
-            "Confirmed": tx.confirmed,
+            "Reference Balance (BTC)": (tx.ref_balance) / 100000000,
+            "Confirmed": new Date(tx.confirmed).toLocaleString(),
             "Double Spend": tx.double_spend
         })));
     } catch (error) {
